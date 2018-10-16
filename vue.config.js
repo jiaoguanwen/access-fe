@@ -34,9 +34,20 @@ module.exports = {
       .set('_c', resolve('src/components'))
   },
   // 打包时不生成.map文件
-  productionSourceMap: true
+  productionSourceMap: true,
   // 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
   // devServer: {
   //   proxy: 'localhost:3000'
   // }
+  css: {
+    loaderOptions: {
+      // 给 less-loader 传递选项
+      less: {
+        // @/ 是 src/ 的别名
+        // 所以这里假设你有 `src/variables.scss` 这个文件
+        // data: `@import "@/variables.scss";`
+        javascriptEnabled: true
+      }
+    }
+  }
 }
