@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Row :gutter="20">
+    <!-- <Row :gutter="20">
       <i-col :xs="12" :md="8" :lg="4" v-for="(infor, i) in inforCardData" :key="`infor-${i}`" style="height: 120px;padding-bottom: 10px;">
         <infor-card shadow :color="infor.color" :icon="infor.icon" :icon-size="36">
           <count-to :end="infor.count" count-class="count-style"/>
@@ -24,18 +24,18 @@
       <Card shadow>
         <example style="height: 310px;"/>
       </Card>
-    </Row>
+    </Row> -->
   </div>
 </template>
 
 <script>
-import InforCard from '_c/info-card'
+/* import InforCard from '_c/info-card'
 import CountTo from '_c/count-to'
 import { ChartPie, ChartBar } from '_c/charts'
-import Example from './example.vue'
+import Example from './example.vue' */
 export default {
-  name: 'home',
-  components: {
+  name: 'home'
+  /* components: {
     InforCard,
     CountTo,
     ChartPie,
@@ -72,7 +72,7 @@ export default {
   },
   mounted () {
     //
-  }
+  } */
 }
 </script>
 

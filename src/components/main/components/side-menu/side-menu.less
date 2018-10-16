@@ -1,18 +1,23 @@
 .side-menu-wrapper{
   user-select: none;
+  width: 90px;
   .menu-collapsed{
     padding-top: 10px;
-
+    font-size: 0;
+    & > div {
+      height: 74px;
+      line-height: 74px;
+    }
     .ivu-dropdown{
       width: 100%;
       .ivu-dropdown-rel a{
-        width: 100%;
+        width: 88px;
       }
     }
     .ivu-tooltip{
       width: 100%;
       .ivu-tooltip-rel{
-        width: 100%;
+        width: 88px;
       }
       .ivu-tooltip-popper .ivu-tooltip-content{
         .ivu-tooltip-arrow{
@@ -28,11 +33,23 @@
 
   }
   a.drop-menu-a{
-    display: inline-block;
-    padding: 6px 15px;
-    width: 100%;
+    position: relative;
+    display: block;
+    // padding: 6px 15px;
+    padding: 0;
+    width: 88px;
+    height: 74px;
     text-align: center;
     color: #495060;
+    & > img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  a.drop-menu-a.menu-actived {
+    background:rgba(92, 107, 192, .3);
   }
 }
 .menu-title{

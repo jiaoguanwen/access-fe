@@ -28,7 +28,7 @@ export default [
     redirect: '/home',
     component: Main,
     meta: {
-      hideInMenu: true,
+      hideInMenu: false,
       notCache: true
     },
     children: [
@@ -74,6 +74,8 @@ export default [
     path: '/components',
     name: 'components',
     meta: {
+      // todo 多级菜单，需要标识根目录
+      level: 1,
       icon: 'logo-buffer',
       title: '组件'
     },
@@ -148,6 +150,7 @@ export default [
     path: '/update',
     name: 'update',
     meta: {
+      level: 1,
       icon: 'md-cloud-upload',
       title: '数据上传'
     },
@@ -177,6 +180,7 @@ export default [
     path: '/excel',
     name: 'excel',
     meta: {
+      level: 1,
       icon: 'ios-stats',
       title: 'EXCEL导入导出'
     },
@@ -303,6 +307,7 @@ export default [
     path: '/multilevel',
     name: 'multilevel',
     meta: {
+      level: 1,
       icon: 'md-menu',
       title: '多级菜单'
     },

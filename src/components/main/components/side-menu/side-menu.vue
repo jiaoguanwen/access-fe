@@ -15,9 +15,11 @@
     </Menu>
     <div class="menu-collapsed" v-show="collapsed" :list="menuList">
       <template v-for="item in menuList">
-        <collapsed-menu v-if="item.children && item.children.length > 1" @on-click="handleSelect" hide-title :root-icon-size="rootIconSize" :icon-size="iconSize" :theme="theme" :parent-item="item" :key="`drop-menu-${item.name}`"></collapsed-menu>
+        <collapsed-menu v-if="item.children && item.children.length > 1" @on-click="handleSelect" hide-title :root-icon-size="rootIconSize" :icon-size="iconSize" :theme="theme" :parent-item="item" :key="`drop-menu-${item.name}`" :activeName="activeName" :openedNames="openedNames"></collapsed-menu>
         <Tooltip transfer v-else :content="(item.meta && item.meta.title) || (item.children && item.children[0] && item.children[0].meta.title)" placement="right" :key="`drop-menu-${item.name}`">
-          <a @click="handleSelect(getNameOrHref(item, true))" class="drop-menu-a" :style="{textAlign: 'center'}"><common-icon :size="rootIconSize" :color="textColor" :type="item.icon || (item.children && item.children[0].icon)"/></a>
+          <a @click="handleSelect(getNameOrHref(item, true))" :class="['drop-menu-a', openedNames[0] === item.name ? 'menu-actived' : '']" :style="{textAlign: 'center'}" :data-name="item.name" :data-active="activeName" :data-item="JSON.stringify(item)">
+            <img :src="AboutUs" alt="">
+          </a>
         </Tooltip>
       </template>
     </div>
@@ -28,6 +30,7 @@ import SideMenuItem from './side-menu-item.vue'
 import CollapsedMenu from './collapsed-menu.vue'
 import { getUnion } from '@/libs/tools'
 import mixin from './mixin'
+import AboutUs from '@/assets/images/side-menu/about-us.png'
 
 export default {
   name: 'SideMenu',
@@ -48,7 +51,7 @@ export default {
     },
     theme: {
       type: String,
-      default: 'dark'
+      default: 'light'
     },
     rootIconSize: {
       type: Number,
@@ -70,11 +73,13 @@ export default {
   },
   data () {
     return {
-      openedNames: []
+      openedNames: [],
+      AboutUs
     }
   },
   methods: {
     handleSelect (name) {
+      console.log(name)
       this.$emit('on-select', name)
     },
     getOpenedNamesByActiveName (name) {

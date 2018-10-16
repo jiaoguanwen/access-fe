@@ -30,6 +30,7 @@ const showThisMenuEle = (item, access) => {
  * @returns {Array}
  */
 export const getMenuByRouter = (list, access) => {
+  console.log(list)
   let res = []
   forEach(list, item => {
     if (!item.meta || (item.meta && !item.meta.hideInMenu)) {
@@ -39,12 +40,19 @@ export const getMenuByRouter = (list, access) => {
         meta: item.meta
       }
       if ((hasChild(item) || (item.meta && item.meta.showAlways)) && showThisMenuEle(item, access)) {
+        console.log(item)
         obj.children = getMenuByRouter(item.children, access)
       }
       if (item.meta && item.meta.href) obj.href = item.meta.href
       if (showThisMenuEle(item, access)) res.push(obj)
     }
   })
+  console.log('---', res)
+  if (res.length === 0) {
+    console.log('....', list)
+    console.error('need handle')
+    res = list.slice()
+  }
   return res
 }
 
