@@ -1,7 +1,7 @@
 <template>
   <Dropdown ref="dropdown" @on-click="handleClick" :class="hideTitle ? '' : 'collased-menu-dropdown'" :transfer="hideTitle" :placement="placement">
-    <a :class="['drop-menu-a', openedNames[0] === parentItem.name ? 'menu-actived' : '']" type="text" @mouseover="handleMousemove($event, children)" :style="{textAlign: !hideTitle ? 'left' : ''}" :data-name="parentItem.name" :data-active="activeName" :data-item="JSON.stringify(parentItem)">
-      <img v-if="parentItem.meta.level && parentItem.meta.level === 1" :src="AboutUs" alt="">
+    <a :class="['drop-menu-a', openedNames[0] === parentItem.name ? 'menu-actived' : '']" type="text" @mouseover="handleMousemove($event, children)" :style="{textAlign: !hideTitle ? 'left' : ''}">
+      <img v-if="parentItem.meta.level && parentItem.meta.level === 1" :src="getSrc(parentItem.name)" alt="">
       <common-icon v-else :size="rootIconSize" :color="textColor" :type="parentItem.icon"/>
       <span class="menu-title" v-if="!hideTitle">{{ showTitle(parentItem) }}</span><Icon style="float: right;" v-if="!hideTitle" type="ios-arrow-forward" :size="16"/>
     </a>
@@ -17,7 +17,7 @@
 import mixin from './mixin'
 import itemMixin from './item-mixin'
 import { findNodeUpperByClasses } from '@/libs/util'
-import AboutUs from '@/assets/images/side-menu/about-us.png'
+import sideMenuImageContext from './side-menu-image-context'
 
 export default {
   name: 'CollapsedMenu',
@@ -42,8 +42,7 @@ export default {
   },
   data () {
     return {
-      placement: 'right-end',
-      AboutUs
+      placement: 'right-end'
     }
   },
   methods: {
@@ -55,6 +54,10 @@ export default {
       const height = children.length * 38
       const isOverflow = pageY + height < window.innerHeight
       this.placement = isOverflow ? 'right-start' : 'right-end'
+    },
+    getSrc (name) {
+      if (this.openedNames[0] === name) return sideMenuImageContext(`./${name}-selected.png`)
+      else return sideMenuImageContext(`./${name}.png`)
     }
   },
   mounted () {

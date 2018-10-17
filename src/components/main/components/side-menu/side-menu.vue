@@ -17,8 +17,8 @@
       <template v-for="item in menuList">
         <collapsed-menu v-if="item.children && item.children.length > 1" @on-click="handleSelect" hide-title :root-icon-size="rootIconSize" :icon-size="iconSize" :theme="theme" :parent-item="item" :key="`drop-menu-${item.name}`" :activeName="activeName" :openedNames="openedNames"></collapsed-menu>
         <Tooltip transfer v-else :content="(item.meta && item.meta.title) || (item.children && item.children[0] && item.children[0].meta.title)" placement="right" :key="`drop-menu-${item.name}`">
-          <a @click="handleSelect(getNameOrHref(item, true))" :class="['drop-menu-a', openedNames[0] === item.name ? 'menu-actived' : '']" :style="{textAlign: 'center'}" :data-name="item.name" :data-active="activeName" :data-item="JSON.stringify(item)">
-            <img :src="AboutUs" alt="">
+          <a @click="handleSelect(getNameOrHref(item, true))" :class="['drop-menu-a', openedNames[0] === item.name ? 'menu-actived' : '']" :style="{textAlign: 'center'}">
+            <img :src="getSrc(item.name)" alt="">
           </a>
         </Tooltip>
       </template>
@@ -30,7 +30,7 @@ import SideMenuItem from './side-menu-item.vue'
 import CollapsedMenu from './collapsed-menu.vue'
 import { getUnion } from '@/libs/tools'
 import mixin from './mixin'
-import AboutUs from '@/assets/images/side-menu/about-us.png'
+import sideMenuImageContext from './side-menu-image-context'
 
 export default {
   name: 'SideMenu',
@@ -73,8 +73,7 @@ export default {
   },
   data () {
     return {
-      openedNames: [],
-      AboutUs
+      openedNames: []
     }
   },
   methods: {
@@ -88,6 +87,10 @@ export default {
     updateOpenName (name) {
       if (name === 'home') this.openedNames = []
       else this.openedNames = this.getOpenedNamesByActiveName(name)
+    },
+    getSrc (name) {
+      if (this.openedNames[0] === name) return sideMenuImageContext(`./${name}-selected.png`)
+      else return sideMenuImageContext(`./${name}.png`)
     }
   },
   computed: {
