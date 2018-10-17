@@ -1,15 +1,16 @@
 .side-menu-wrapper{
   user-select: none;
-  width: 90px;
+  width: 88px;
   .menu-collapsed{
     padding-top: 10px;
     font-size: 0;
+    overflow: hidden;
     & > div {
       height: 74px;
       line-height: 74px;
     }
     .ivu-dropdown{
-      width: 100%;
+      width: ~"calc(100% + 2px)";
       .ivu-dropdown-rel a{
         width: 88px;
       }
