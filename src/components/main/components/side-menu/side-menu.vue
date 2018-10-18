@@ -18,7 +18,8 @@
         <collapsed-menu v-if="item.children && item.children.length > 1" @on-click="handleSelect" hide-title :root-icon-size="rootIconSize" :icon-size="iconSize" :theme="theme" :parent-item="item" :key="`drop-menu-${item.name}`" :activeName="activeName" :openedNames="openedNames"></collapsed-menu>
         <Tooltip transfer v-else :content="(item.meta && item.meta.title) || (item.children && item.children[0] && item.children[0].meta.title)" placement="right" :key="`drop-menu-${item.name}`">
           <a @click="handleSelect(getNameOrHref(item, true))" :class="['drop-menu-a', openedNames[0] === item.name ? 'menu-actived' : '']" :style="{textAlign: 'center'}">
-            <img :src="getSrc(item.name)" alt="">
+            <img v-if="item.meta.img" :src="getSrc(item.name)" alt="">
+            <common-icon v-else :size="rootIconSize" :color="textColor" :type="item.icon || (item.children && item.children[0].icon)"/>
           </a>
         </Tooltip>
       </template>
@@ -78,7 +79,6 @@ export default {
   },
   methods: {
     handleSelect (name) {
-      console.log(name)
       this.$emit('on-select', name)
     },
     getOpenedNamesByActiveName (name) {

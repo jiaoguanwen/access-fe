@@ -28,8 +28,11 @@ export default [
     redirect: '/home',
     component: Main,
     meta: {
+      img: true,
       hideInMenu: false,
-      notCache: true
+      title: '首页',
+      notCache: true,
+      icon: 'md-home'
     },
     children: [
       {
@@ -53,7 +56,7 @@ export default [
       href: 'https://lison16.github.io/iview-admin-doc/#/',
       icon: 'ios-book'
     }
-  }, */
+  },
   {
     path: '/join',
     name: 'join',
@@ -70,12 +73,11 @@ export default [
       }
     ]
   },
-  /* {
+  {
     path: '/components',
     name: 'components',
     meta: {
-      // todo 多级菜单，需要标识根目录
-      level: 1,
+      img: 1,
       icon: 'logo-buffer',
       title: '组件'
     },
@@ -145,12 +147,11 @@ export default [
         component: () => import('@/view/components/icons/icons.vue')
       }
     ]
-  }, */
-  /* {
+  },
+  {
     path: '/update',
     name: 'update',
     meta: {
-      level: 1,
       icon: 'md-cloud-upload',
       title: '数据上传'
     },
@@ -175,12 +176,11 @@ export default [
         component: () => import('@/view/update/update-paste.vue')
       }
     ]
-  }, */
-  /* {
+  },
+  {
     path: '/excel',
     name: 'excel',
     meta: {
-      level: 1,
       icon: 'ios-stats',
       title: 'EXCEL导入导出'
     },
@@ -205,8 +205,8 @@ export default [
         component: () => import('@/view/excel/export-excel.vue')
       }
     ]
-  }, */
-  /* {
+  },
+  {
     path: '/tools_methods',
     name: 'tools_methods',
     meta: {
@@ -225,8 +225,8 @@ export default [
         component: () => import('@/view/tools-methods/tools-methods.vue')
       }
     ]
-  }, */
-  /* {
+  },
+  {
     path: '/i18n',
     name: 'i18n',
     meta: {
@@ -244,8 +244,8 @@ export default [
         component: () => import('@/view/i18n/i18n-page.vue')
       }
     ]
-  }, */
-  /* {
+  },
+  {
     path: '/error_store',
     name: 'error_store',
     meta: {
@@ -263,8 +263,8 @@ export default [
         component: () => import('@/view/error-store/error-store.vue')
       }
     ]
-  }, */
-  /* {
+  },
+  {
     path: '/error_logger',
     name: 'error_logger',
     meta: {
@@ -283,8 +283,8 @@ export default [
         component: () => import('@/view/single-page/error-logger.vue')
       }
     ]
-  }, */
-  /* {
+  },
+  {
     path: '/directive',
     name: 'directive',
     meta: {
@@ -307,7 +307,7 @@ export default [
     path: '/multilevel',
     name: 'multilevel',
     meta: {
-      level: 1,
+      img: true,
       icon: 'md-menu',
       title: '多级菜单'
     },

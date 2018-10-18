@@ -1,7 +1,7 @@
 <template>
   <Dropdown ref="dropdown" @on-click="handleClick" :class="hideTitle ? '' : 'collased-menu-dropdown'" :transfer="hideTitle" :placement="placement">
     <a :class="['drop-menu-a', openedNames[0] === parentItem.name ? 'menu-actived' : '']" type="text" @mouseover="handleMousemove($event, children)" :style="{textAlign: !hideTitle ? 'left' : ''}">
-      <img v-if="parentItem.meta.level && parentItem.meta.level === 1" :src="getSrc(parentItem.name)" alt="">
+      <img v-if="parentItem.meta.img" :src="getSrc(parentItem.name)" alt="">
       <common-icon v-else :size="rootIconSize" :color="textColor" :type="parentItem.icon"/>
       <span class="menu-title" v-if="!hideTitle">{{ showTitle(parentItem) }}</span><Icon style="float: right;" v-if="!hideTitle" type="ios-arrow-forward" :size="16"/>
     </a>
@@ -63,7 +63,6 @@ export default {
   mounted () {
     let dropdown = findNodeUpperByClasses(this.$refs.dropdown.$el, ['ivu-select-dropdown', 'ivu-dropdown-transfer'])
     if (dropdown) dropdown.style.overflow = 'visible'
-    console.log(this.parentItem)
   }
 }
 </script>
