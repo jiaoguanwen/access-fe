@@ -1,5 +1,5 @@
 export default {
-  home: '首页',
+  _home: '首页',
   components: '组件',
   count_to_page: '数字渐变',
   tables_page: '多功能表格',
@@ -32,6 +32,20 @@ export default {
   buttonText: '显示模态框',
   'i18n-tip': '注：仅此页做了多语言，其他页面没有在多语言包中添加语言内容',
   error_store_page: '错误收集',
-  error_logger_page: '错误日志'
-
+  error_logger_page: '错误日志',
+  'user-manage': '用户管理',
+  'employee-manage': '人员管理',
+  'guest-manage': '访客管理',
+  'attendance-manage': '考勤管理',
+  'attendance-statistics': '考勤统计',
+  'attendance-setting': '考勤设置',
+  'history': '历史记录',
+  'user-history': '用户记录',
+  'stranger-history': '陌生人记录',
+  'door-manage': '门禁管理',
+  'door-device': '门禁设备',
+  'door-setting': '门禁设置',
+  'usher-manage': '迎宾管理',
+  'account-manage': '账户管理',
+  'about-us': '关于我们'
 }

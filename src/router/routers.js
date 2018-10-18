@@ -1,5 +1,5 @@
 import Main from '@/components/main'
-import parentView from '@/components/parent-view'
+// import parentView from '@/components/parent-view'
 
 /**
  * iview-admin中meta除了原生参数外可配置的参数:
@@ -304,6 +304,171 @@ export default [
     ]
   }, */
   {
+    path: '/user-manage',
+    name: 'user-manage',
+    meta: {
+      img: true,
+      title: '用户管理'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'employee-manage',
+        name: 'employee-manage',
+        meta: {
+          title: '人员管理'
+        },
+        component: () => import('@/view/user-manage/employee-manage')
+      },
+      {
+        path: 'guest-manage',
+        name: 'guest-manage',
+        meta: {
+          title: '访客管理'
+        },
+        component: () => import('@/view/user-manage/guest-manage')
+      }
+    ]
+  },
+  {
+    path: '/attendance-manage',
+    name: 'attendance-manage',
+    meta: {
+      img: true,
+      title: '考勤管理'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'attendance-statistics',
+        name: 'attendance-statistics',
+        meta: {
+          title: '考勤统计'
+        },
+        component: () => import('@/view/attendance-manage/attendance-statistics')
+      },
+      {
+        path: 'attendance-setting',
+        name: 'attendance-setting',
+        meta: {
+          title: '考勤设置'
+        },
+        component: () => import('@/view/attendance-manage/attendance-setting')
+      }
+    ]
+  },
+  {
+    path: '/history',
+    name: 'history',
+    meta: {
+      img: true,
+      title: '历史记录'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'user-history',
+        name: 'user-history',
+        meta: {
+          title: '用户记录'
+        },
+        component: () => import('@/view/history/user-history')
+      },
+      {
+        path: 'stranger-history',
+        name: 'stranger-history',
+        meta: {
+          title: '陌生人记录'
+        },
+        component: () => import('@/view/history/stranger-history')
+      }
+    ]
+  },
+  {
+    path: '/door-manage',
+    name: 'door-manage',
+    meta: {
+      img: true,
+      title: '门禁管理'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'door-device',
+        name: 'door-device',
+        meta: {
+          title: '门禁设备'
+        },
+        component: () => import('@/view/door-manage/door-device')
+      },
+      {
+        path: 'door-setting',
+        name: 'door-setting',
+        meta: {
+          title: '门禁设置'
+        },
+        component: () => import('@/view/door-manage/door-setting')
+      }
+    ]
+  },
+  {
+    path: '/usher-manage',
+    name: 'usher-manage',
+    meta: {
+      hide: true,
+      img: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'usher-manage_page',
+        name: 'usher-manage_page',
+        meta: {
+          title: '迎宾管理'
+        },
+        component: () => import('@/view/usher-manage')
+      }
+    ]
+  },
+  {
+    path: '/account-manage',
+    name: 'account-manage',
+    meta: {
+      hide: true,
+      img: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'account-manage_page',
+        name: 'account-manage_page',
+        meta: {
+          title: '账户管理'
+        },
+        component: () => import('@/view/account-manage')
+      }
+    ]
+  },
+  {
+    path: '/about-us',
+    name: 'about-us',
+    meta: {
+      hide: true,
+      img: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'about-us_page',
+        name: 'about-us_page',
+        meta: {
+          title: '关于我们'
+        },
+        component: () => import('@/view/about-us')
+      }
+    ]
+  },
+  /* {
     path: '/multilevel',
     name: 'multilevel',
     meta: {
@@ -354,7 +519,7 @@ export default [
         component: () => import('@/view/multilevel/level-2-3.vue')
       }
     ]
-  },
+  }, */
   {
     path: '/argu',
     name: 'argu',

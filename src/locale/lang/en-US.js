@@ -1,5 +1,5 @@
 export default {
-  home: 'Home',
+  _home: 'Home',
   components: 'Components',
   count_to_page: 'Count-to',
   tables_page: 'Table',
@@ -32,5 +32,20 @@ export default {
   buttonText: 'Show Modal',
   'i18n-tip': 'Note: Only this page is multi-language, other pages do not add language content to the multi-language package.',
   error_store_page: 'Error Collection',
-  error_logger_page: 'Error Logger'
+  error_logger_page: 'Error Logger',
+  'user-manage': 'User-Manage',
+  'employee-manage': 'Employee-Manage',
+  'guest-manage': 'Guest-Manage',
+  'attendance-manage': 'Attendance-Manage',
+  'attendance-statistics': 'Attendance-Statistics',
+  'attendance-setting': 'Attendance-Setting',
+  'history': 'History',
+  'user-history': 'User-History',
+  'stranger-history': 'Stranger-History',
+  'door-manage': 'Door-Manage',
+  'door-device': 'Door-Device',
+  'door-setting': 'Door-Setting',
+  'usher-manage': 'Usher-Manage',
+  'account-manage': 'Account-Manage',
+  'about-us': 'About-Us'
 }
